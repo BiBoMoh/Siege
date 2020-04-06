@@ -2,7 +2,7 @@
 {
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family:  Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 header img
 {
@@ -19,6 +19,7 @@ body
     top: 0;
     z-index: -5;
     right: 0;
+    margin: 0;
 }
 #particules
 {
@@ -30,11 +31,17 @@ body
 }
 header
 {
+    position: absolute;
     padding-top: 10px;
     height: 45px;
-    display: grid;
-    grid-template-columns: 2fr 6fr 20vw;
-    grid-template-rows: 1fr;
+    display: flex;
+    flex-direction: row;
+    width: 95vw;
+    z-index: 5;
+}
+header .part
+{
+    margin-left: 5vw;
 }
 header .search .box
 {
@@ -58,28 +65,57 @@ header .search .box input
 }
 header .kinds
 {
-    margin-left: 20px;
     color: #fff;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
 }
-header .kinds .dropItems 
-{
-    display: none;
-    position: absolute;
+header .kinds .list {
+    margin-right: 3vw;
 }
-header .kinds .list:hover .dropItems{
-    display: block;
+    header .kinds .list .dropItems .arrow
+{
+    top: -5px;
+    position: absolute;
+    width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  
+  border-bottom: 5px solid #333;
+}
+header .kinds .list:hover h3 {
+    border-bottom: 3px solid #ffde00;
+}
+header .kinds .list .dropItems 
+{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-top: 5px;
+    opacity: 0;
+    background-color: #333;
+    transition: 0.5s;
+}
+header .kinds .list .dropItems li
+{
+    margin-top: 5px;
 } 
+header .kinds .list:hover .dropItems {
+    opacity: 1;
+}
+
+
 ul
 {
     list-style-type: none;
 }
 header .toggle
 {
+    position: absolute;
     display: flex;
-    position: relative;
+    right: 0;
 } 
 header .toggle .item 
 {
@@ -89,23 +125,27 @@ header .toggle .item
 a
 {
     text-decoration: none;
-    color: #000;
+    color: #fff;
 }
 .container
 {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(auto-fill , minmax(100vh ,1fr));
-    margin-bottom: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .container .sitepres
 {
+    margin-bottom: 30vh;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.container .sitepres .thumbnail
+{
+    margin-top: 10vmin;
 }
 .container .sitepres .content
 {
@@ -115,14 +155,14 @@ a
 }
 .container .sitepres img
 {
-    width: 300px;
-    height: 300px;
+    width: 30vmin;
+    height: auto;
     z-index: -1;
 }
 .container .sitepres h1
 {
     color: #fff;
-    font-size: 100px;
+    font-size: 10vmin;
 }
 .container .sitepres .des
 {
@@ -166,10 +206,10 @@ footer .item
     justify-content: center;
     align-items: center;
 }
-footer .item a 
+/*footer .item a 
 {
     color: #fff;
-}
+}*/
 footer .team img
 {
     width: 50px;
